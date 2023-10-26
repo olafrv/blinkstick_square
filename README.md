@@ -9,8 +9,61 @@ brew install libusb     # MacOS
 pip3 install pyusb      # Unix-Like Only
 pip3 install pywinusb   # Windows Only
 pip3 install coverage   # Only for Coverage
-python3 tests.py  # as root / administrator
-bash coverage.sh  # as root / administrator
+```
+
+## Test
+```bash
+# Run as root / Administrator to access USB
+python3 tests.py
+bash coverage.sh  # (code coverage report)
+```
+
+## Output
+
+```bash
+Package Version:1.2.0
+Serial:        BS056011-3.0
+Variant:       BlinkStick Square
+Manufacturer:  Agile Innovative Ltd
+Description:   BlinkStick
+Info Block 1:  Olaf Retmaier
+Info Block 2:  olafrv@gmail.com
+---
+Finding first device...
+LEDs Count: -1
+---
+Turning on 🟥 RED...
+Color: #ff0000
+Color: [255, 0, 0]
+---
+Turning on 🟧 ORANGE...
+Color: #ffa500
+Color: [255, 165, 0]
+---
+Turning on 🟥 RED? (Max RGB Value=128) ...
+Color: #800000
+Color: [128, 0, 0]
+---
+Inverse of ⬛ BLACK is ⬜ WHITE ...
+Color: #000000
+Color: [0, 0, 0]
+---
+Pulsing on 🟦 BLUE...
+Color: #000000
+Color: [0, 0, 0]
+---
+Blinking on 🟩 GREEN...
+Color: #000000
+Color: [0, 0, 0]
+---
+Morphing from 🟦 GREEN => 🟨 YELLOW ...
+Color: #ffff00
+Color: [255, 255, 0]
+---
+Random 2x🎁 COLORS ...
+Color: #d7cfdd
+Color: [215, 207, 221]
+Turning ⬇️ OFF
 ```
 
 ## References

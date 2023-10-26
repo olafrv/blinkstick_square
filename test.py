@@ -62,7 +62,7 @@ if led:
     print ("Color: " + str(led.get_color(color_format="rgb")))
     sleep(3)
     led.set_max_rgb_value(255)
-    led.get_max_rgb_value()
+    led.get_max_rgb_value(None)
     
     print ("---")
     print ("Inverse of ⬛ BLACK is ⬜ WHITE ...")
