@@ -1,12 +1,7 @@
 #!/bin/bash
 
+# The coverage was done due to Python 3 migration
 # https://docs.python.org/3/howto/pyporting.html
-
-# MacOS Pre-Requisites
-
-# brew install libusb
-# pip3 install pyusb
-# pip3 install coverage
 
 SRC=blinkstick-python/blinkstick
 

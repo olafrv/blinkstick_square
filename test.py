@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 
-# *NX: https://github.com/pyusb/pyusb
-# WIN: https://pypi.org/project/pywinusb
-# SRC: https://github.com/arvydas/blinkstick-python
-# API: https://arvydas.github.io/blinkstick-python/
-
 import sys
 from time import sleep
 
