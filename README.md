@@ -16,9 +16,12 @@ pip3 install coverage   # Only for Coverage
 ## Test
 
 See [coverage.md](coverage.md) for details of the test environment I used.
+
 ```bash
+git clone https://github.com/olafrv/blinkstick_square
+git clone submodule update 
 # Run as root / Administrator to access USB
-python3 tests.py
+python3 tests.py  
 bash coverage.sh  # (code coverage report)
 ```
 
