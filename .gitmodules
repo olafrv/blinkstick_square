@@ -1,0 +1,3 @@
+[submodule "blinkstick-python"]
+	path = blinkstick-python
+	url = https://github.com/arvydas/blinkstick-python.git
