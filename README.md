@@ -1,6 +1,6 @@
 # BlinkStick Square Tests
 
-A test Python 3 script for the [BlinkStick Square](https://www.blinkstick.com/products/blinkstick-square) device.
+A Python 3 script to test the [BlinkStick Square](https://www.blinkstick.com/products/blinkstick-square) device.
 
 ## Pre-Requisites
 
@@ -21,7 +21,7 @@ bash coverage.sh  # (code coverage report)
 ## Output
 
 ```bash
-Package Version:1.2.0
+Package Version: 1.2.0
 Serial:        BS056011-3.0
 Variant:       BlinkStick Square
 Manufacturer:  Agile Innovative Ltd

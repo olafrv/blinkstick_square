@@ -7,7 +7,7 @@ sys.path.append('./blinkstick-python')
 
 from blinkstick import blinkstick  # type: ignore
 
-print("Package Version:" + blinkstick.get_blinkstick_package_version())
+print("Package Version: " + blinkstick.get_blinkstick_package_version())
 
 for bstick in blinkstick.find_all():
     print ("Serial:        " + bstick.get_serial())
