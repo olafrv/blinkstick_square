@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # The coverage was done due to Python 3 migration
 # https://docs.python.org/3/howto/pyporting.html

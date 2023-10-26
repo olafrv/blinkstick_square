@@ -22,7 +22,7 @@ git clone https://github.com/olafrv/blinkstick_square
 git clone submodule update 
 # Run as root / Administrator to access USB
 python3 tests.py  
-bash coverage.sh  # (code coverage report)
+sh coverage.sh  # (code coverage report)
 ```
 
 ## Output

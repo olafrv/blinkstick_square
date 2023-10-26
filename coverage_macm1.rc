@@ -1,5 +1,5 @@
 [run]
-data_file = coverage\coverage_macos_m1.coverage
+data_file = coverage/coverage_macm1
 
 [report]
 exclude_also =
