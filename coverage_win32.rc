@@ -1,5 +1,5 @@
 [run]
-data_file = coverage\coverage_win32
+data_file = coverage\.coverage.win32
 
 [report]
 exclude_also =
