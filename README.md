@@ -4,6 +4,8 @@ A Python 3 script to test the [BlinkStick Square](https://www.blinkstick.com/pro
 
 ## Pre-Requisites
 
+A Micro USB Male to Any USB 1.1/2.0/3.0 Female **data transfer** cable (Power only won't work).
+
 ```bash
 brew install libusb     # MacOS
 pip3 install pyusb      # Unix-Like Only
@@ -12,6 +14,8 @@ pip3 install coverage   # Only for Coverage
 ```
 
 ## Test
+
+See [coverage.md](coverage.md) for details of the test environment I used.
 ```bash
 # Run as root / Administrator to access USB
 python3 tests.py
