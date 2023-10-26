@@ -6,8 +6,7 @@
 
 # brew install libusb
 # pip3 install pyusb
-
-git clone https://github.com/arvydas/blinkstick-python.git 2>/dev/null
+# pip3 install coverage
 
 SRC=blinkstick-python/blinkstick
 
