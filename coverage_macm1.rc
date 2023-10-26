@@ -1,0 +1,50 @@
+[run]
+data_file = coverage\coverage_macos_m1.coverage
+
+[report]
+exclude_also =
+    ; IGNORE: 2nd write fails for ._set_blocl_info* (Fix?)
+    def set_info_block1
+    def set_info_block2
+    def _data_to_message
+
+    ; IGNORE: Windows Flavor
+    if sys.platform == "win32"
+
+    ; IGNORE: Python 2 failback
+    except ImportError:
+
+    ; IGNORE: Those which requires BlickStick Pro (Sponsor?)
+    class BlinkStickPro
+    class BlinkStickProMatrix
+    def set_mode
+    def get_mode
+    
+    ; IGNORE: Only on "Supported Devices" not BS Square (Sponsor?)
+    def set_led_data
+    def get_led_data
+    def send_data
+    def set_led_count
+    def _determine_report_id
+
+    ; IGNORE: It is OK if tests do not hit defensive code
+    ; NOTE: USBError appears from time to time (retry works)
+    raise BlinkStickException
+    raise USBError
+    raise ValueError
+    except Exception
+    except usb.USBError
+    except usb.core.USBError
+    except AttributeError
+    except KeyError
+    except ValueError
+    
+    ; IGNORE: Safety if RGBs > 255 and self.reverse
+    if r_start > 255 or g_start > 255 or b_start > 255:
+
+    ; Ignore in-code ignored ones (if any)
+    “pragma: no cover”
+
+    ; IGNORE: if-elif-else, at least one tested.
+    def get_variant
+    

@@ -1,3 +1,6 @@
+[run]
+data_file = coverage\coverage_win32.coverage
+
 [report]
 exclude_also =
     ; IGNORE: 2nd write fails for ._set_blocl_info* (Fix?)
@@ -6,10 +9,10 @@ exclude_also =
     def _data_to_message
 
     ; IGNORE: Windows Flavor
-    if sys.platform == "win32"
+    ; if sys.platform == "win32"
 
     ; IGNORE: Python 2 failback
-    except ImportError:
+    except ImportError
 
     ; IGNORE: Those which requires BlickStick Pro (Sponsor?)
     class BlinkStickPro

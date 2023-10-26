@@ -35,7 +35,8 @@ led = blinkstick.find_first()
 
 if led:
 
-    print("LEDs Count: " + str(led.get_led_count()))  # -1 <=> Unsupported
+    if sys.platform != "win32":
+        print("LEDs Count: " + str(led.get_led_count()))  # -1 <=> Unsupported
 
     print("---")
     print("Turning on 🟥 RED...")
