@@ -15,15 +15,11 @@ pip3 install coverage   # Only for Coverage
 
 ## Test
 
-See [coverage.md](coverage.md) for details of the test environment I used.
-
 ```bash
 git clone https://github.com/olafrv/blinkstick_square
 git clone submodule update 
 # Run as root / Administrator to allow USB access
 python3 tests.py
-sh coverage.sh     # Unix-Like
-pwsh coverage.ps1  # Windows
 ```
 
 ## Output
@@ -73,6 +69,19 @@ Color: #d7cfdd
 Color: [215, 207, 221]
 Turning ⬇️ OFF
 ```
+
+# Test Coverage
+```bash
+See [coverage.md](coverage.md) for details of the test environment I used.
+sh coverage.sh     # Unix-Like
+pwsh coverage.ps1  # Windows
+```
+
+# Todos
+
+* WSL2 USB Tests
+  * https://gitlab.com/alelec/wsl-usb-gui
+  * https://github.com/dorssel/usbipd-win
 
 ## References
 
