@@ -1,12 +1,8 @@
-# Python 3 Code Coverage Tests
+## Python 3 Code Coverage Tests
 
-## BlinkStick Square + MacOS Sonoma 14.0 + MacBook Pro Apple M1 + Python 3.11.6
+### BlinkStick Square + MacOS Sonoma 14.0 + MacBook Pro Apple M1 + Python 3.11.6
 
-### Coverage Command
-
-See [coverage.sh](coverage.sh)
-
-### Coverage Percentage
+Output of [coverage.sh](coverage.sh) using [coverage_macm1.rc](coverage_macm1.rc):
 
 ```sh
 Name                                         Stmts   Miss  Cover   Missing
@@ -18,7 +14,9 @@ blinkstick-python/blinkstick/blinkstick.py     219      6    97%   264, 411-412,
 TOTAL                                          228      6    97%
 ```
 
-## BlinkStick Square + Windows 11 23H2 + ASUS-G713RW AMD + Python 3.11.6
+### BlinkStick Square + Windows 11 23H2 + ASUS-G713RW AMD + Python 3.11.6
+
+Output of [coverage.ps1](coverage.ps1) using [coverage_win32.rc](coverage_win32.rc):
 
 ```sh
 Name                                         Stmts   Miss  Cover   Missing
@@ -29,7 +27,3 @@ blinkstick-python/blinkstick\blinkstick.py     251     44    82%   14-15, 218, 2
 --------------------------------------------------------------------------
 TOTAL                                          260     44    83%
 ```
-
-### Coverage Lines Ignored
-
-See [.coveragerc](.coveragerc) for safely ignored lines and the reasons.
