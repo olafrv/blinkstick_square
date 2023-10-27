@@ -9,8 +9,8 @@ coverage run --debug config --parallel-mode --rcfile=coverage_win32.rc test.py
 
 coverage combine --keep --append .\coverage\
 
-coverage report --show-missing $SRC\*.py
+coverage report --show-missing --rcfile=coverage_win32.rc $SRC\*.py
 
-# coverage html --rcfile=coverage_win32.rc -i --no-skip-covered  # Passed
+coverage html --rcfile=coverage_win32.rc --no-skip-covered # Paased
 
-coverage html -i --no-skip-covered   # coverage_vs_other_blicksticks
+coverage report --show-missing   # vs Other BlickSticks / MacOS
