@@ -20,9 +20,10 @@ See [coverage.md](coverage.md) for details of the test environment I used.
 ```bash
 git clone https://github.com/olafrv/blinkstick_square
 git clone submodule update 
-# Run as root / Administrator to access USB
-python3 tests.py  
-sh coverage.sh  # (code coverage report)
+# Run as root / Administrator to allow USB access
+python3 tests.py
+sh coverage.sh     # Unix-Like
+pwsh coverage.ps1  # Windows
 ```
 
 ## Output
