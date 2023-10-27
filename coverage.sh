@@ -7,10 +7,10 @@ SRC="blinkstick-python/blinkstick"
 
 sudo coverage run --debug config --parallel-mode --rcfile=coverage_macm1.rc test.py
 
-coverage combine --keep ./coverage
+coverage combine --keep --append --rcfile=coverage_macm1.rc ./coverage
 
 coverage report --show-missing --rcfile=coverage_macm1.rc $SRC/*.py
 
-coverage html --rcfile=coverage_macm1.rc --no-skip-covered  # Passed
+coverage html --rcfile=coverage_macm1.rc --no-skip-covered -d coverage/macm1
 
 coverage report --show-missing   # vs Other BlickSticks / Windows
