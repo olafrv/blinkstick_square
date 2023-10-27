@@ -25,13 +25,13 @@ python3 tests.py
 ## Output
 
 ```bash
-Package Version: 1.2.0
-Serial:        BS056011-3.0
-Variant:       BlinkStick Square
-Manufacturer:  Agile Innovative Ltd
-Description:   BlinkStick
-Info Block 1:  Olaf Retmaier
-Info Block 2:  olafrv@gmail.com
+Python Package: 1.2.0
+Serial:         BS******-*.*
+Variant:        BlinkStick Square
+Manufacturer:   Agile Innovative Ltd
+Description:    BlinkStick
+Info Block 1:   Olaf Retmaier
+Info Block 2:   olafrv@gmail.com
 ---
 Finding first device...
 LEDs Count: -1
@@ -71,8 +71,10 @@ Turning ⬇️ OFF
 ```
 
 # Test Coverage
-```bash
+
 See [coverage.md](coverage.md) for details of the test environment I used.
+
+```bash
 sh coverage.sh     # Unix-Like
 pwsh coverage.ps1  # Windows
 ```

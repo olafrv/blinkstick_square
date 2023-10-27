@@ -7,25 +7,25 @@ sys.path.append('./blinkstick-python')
 
 from blinkstick import blinkstick  # noqa: E408, E402  # type: ignore
 
-print("Package Version: " + blinkstick.get_blinkstick_package_version())
+print("Python Package: " + blinkstick.get_blinkstick_package_version())
 
 for bstick in blinkstick.find_all():
-    print("Serial:        " + bstick.get_serial())
-    print("Variant:       " + bstick.get_variant_string())
-    print("Manufacturer:  " + bstick.get_manufacturer())
-    print("Description:   " + bstick.get_description())
+    print("Serial:         " + bstick.get_serial())
+    print("Variant:        " + bstick.get_variant_string())
+    print("Manufacturer:   " + bstick.get_manufacturer())
+    print("Description:    " + bstick.get_description())
 
     # See .coveragerc for details
     # print("Setting Info Block 1")
     # bstick.set_info_block1("Olaf Reitmaier")
     info1 = bstick.get_info_block1()
-    print("Info Block 1:  " + info1)
+    print("Info Block 1:   " + info1)
 
     # See .coveragerc for details
     # print("Setting Info Block 2")
     # bstick.set_info_block2("olafrv@gmail.com")
     info2 = bstick.get_info_block2()
-    print("Info Block 2:  " + info2)
+    print("Info Block 2:   " + info2)
 
 bstick = None
 
