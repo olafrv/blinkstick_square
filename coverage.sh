@@ -5,7 +5,7 @@
 
 SRC="blinkstick-python/blinkstick"
 
-sudo coverage run --debug config --parallel-mode --rcfile=coverage_macm1.rc test.py
+sudo coverage run --debug config --parallel-mode --rcfile=coverage_macm1.rc coverage.py
 
 coverage combine --keep --append --rcfile=coverage_macm1.rc ./coverage
 

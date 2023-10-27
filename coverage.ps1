@@ -5,7 +5,7 @@
 
 $SRC="blinkstick-python/blinkstick"
 
-coverage run --debug config --parallel-mode --rcfile=coverage_win32.rc test.py
+coverage run --debug config --parallel-mode --rcfile=coverage_win32.rc coverage.py
 
 coverage combine --keep --append --rcfile=coverage_win32.rc .\coverage\
 

@@ -13,13 +13,18 @@ pip3 install pywinusb   # Windows Only
 pip3 install coverage   # Only for Coverage
 ```
 
-## Test
+# Test Coverage
+
+See [coverage.md](coverage.md) for details of environment
+and the lastest tests coverage.
 
 ```bash
 git clone https://github.com/olafrv/blinkstick_square
 git clone submodule update 
 # Run as root / Administrator to allow USB access
-python3 tests.py
+python3 coverage.py  # Main tests
+sh coverage.sh       # Coverage Unix-Like
+pwsh coverage.ps1    # Coverage Windows
 ```
 
 ## Output
@@ -70,17 +75,9 @@ Color: [215, 207, 221]
 Turning ⬇️ OFF
 ```
 
-# Test Coverage
-
-See [coverage.md](coverage.md) for details of the test environment I used.
-
-```bash
-sh coverage.sh     # Unix-Like
-pwsh coverage.ps1  # Windows
-```
-
 # Todos
 
+* API server to operate device remotely
 * WSL2 USB Tests
   * https://gitlab.com/alelec/wsl-usb-gui
   * https://github.com/dorssel/usbipd-win
