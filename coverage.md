@@ -13,9 +13,9 @@ Name                                         Stmts   Miss  Cover   Missing
 --------------------------------------------------------------------------
 blinkstick-python/blinkstick/__init__.py         8      0   100%
 blinkstick-python/blinkstick/_version.py         1      0   100%
-blinkstick-python/blinkstick/blinkstick.py     219      8    96%   264, 411-412, 452-454, 615, 824-825
+blinkstick-python/blinkstick/blinkstick.py     219      6    97%   264, 411-412, 452-454, 615
 --------------------------------------------------------------------------
-TOTAL                                          228      8    96%
+TOTAL                                          228      6    97%
 ```
 
 ## BlinkStick Square + Windows 11 23H2 + ASUS-G713RW AMD + Python 3.11.6
