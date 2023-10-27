@@ -1,5 +1,5 @@
 [run]
-data_file = coverage/coverage_macm1
+data_file = coverage/.coverage.macm1
 
 [report]
 exclude_also =
