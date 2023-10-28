@@ -1,7 +1,9 @@
-# BlinkStick Square
+# BlinkStick Square RESTful API Server
 
-[RESTful API server](server.py) and [test script](test.py) to control the
-[BlinkStick Square](https://www.blinkstick.com/products/blinkstick-square).
+The Unofficial [RESTful API server](server.py) and 
+[test](test.py) Python3 scripts to control the
+[BlinkStick Square](https://www.blinkstick.com/products/blinkstick-square) 
+device.
 
 ## Pre-Requisites
 
