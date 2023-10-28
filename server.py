@@ -1,9 +1,12 @@
-from fastapi import FastAPI
-from blinkstick_python.blinkstick import blinkstick
+import time
 import logging
+import uvicorn
 import webcolors
+from typing import Annotated
+from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
+from blinkstick_python.blinkstick import blinkstick
 
-print("__name__ = " + __name__)
 logging.config.fileConfig('logging.conf', disable_existing_loggers=False)
 logger = logging.getLogger(__name__)
 
@@ -11,8 +14,27 @@ bs = blinkstick.find_first()
 app = FastAPI(
     title="BlickStick-Square API Server",
     summary="RESTful API server to control the BlinkStick Square",
-    version="1.1",
+    version="1.1"
 )
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:8000",
+        "*"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.middleware("http")
+async def add_process_time_header(request: Request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = time.time() - start_time
+    response.headers["X-Process-Time"] = str(process_time)
+    return response
 
 
 def color_to_hex(color):
@@ -38,7 +60,7 @@ def read_root():
 
 
 @app.get("/on")
-def on(color: str = "green"):
+def on(color: Annotated[str, "HTML Color"] = "green"):
     if bs is None:
         return {"error": "no device found"}
     try:
@@ -116,3 +138,7 @@ def morph(
     except Exception as e:
         logger.debug(str(e))
         return {"result": False}
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

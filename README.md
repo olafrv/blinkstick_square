@@ -26,6 +26,7 @@ pip3 install -r requirements.txt
 # > Environment Variables > System Variables > Path > Edit
 # taskkill /f /im "uvicorn.exe"  # Kill any running server
 uvicorn server:app  # --reload
+# python server.py  # Alternative
 ```
 
 Head to http://localhost:8001/docs#/ API frontend.
