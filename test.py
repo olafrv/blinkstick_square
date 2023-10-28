@@ -2,10 +2,7 @@
 
 import sys
 from time import sleep
-
-sys.path.append('./blinkstick-python')
-
-from blinkstick import blinkstick  # noqa: E408, E402  # type: ignore
+from blinkstick_python.blinkstick import blinkstick
 
 print("Python Package: " + blinkstick.get_blinkstick_package_version())
 
