@@ -1,6 +1,7 @@
 libusb; sys_platform == "darwin"
 pyusb==1.2.1
 pywinusb==0.4.2; sys_platform == 'win32'
+webcolors==1.13
 fastapi==0.104.0
 uvicorn[standard]==0.23.2
 coverage==7.3.2

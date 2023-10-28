@@ -1,103 +1,118 @@
-import sys
-import logging
-from datetime import datetime
 from fastapi import FastAPI
-import uvicorn
-sys.path.append('./blinkstick-python')
-from blinkstick import blinkstick  # noqa: E408, E402  # type: ignore
+from blinkstick_python.blinkstick import blinkstick
+import logging
+import webcolors
 
+print("__name__ = " + __name__)
 logging.config.fileConfig('logging.conf', disable_existing_loggers=False)
-
 logger = logging.getLogger(__name__)
+
 bs = blinkstick.find_first()
 app = FastAPI(
     title="BlickStick-Square API Server",
-    summary="RESTful server to control the BlinkStick Square",
-    version="1.0",
+    summary="RESTful API server to control the BlinkStick Square",
+    version="1.1",
 )
 
-@app.get("/")  # noqa: E302
+
+def color_to_hex(color):
+    return webcolors.name_to_hex(color)
+
+
+def color_from_hex(hex):
+    return webcolors.hex_to_name(hex)
+
+
+@app.get("/")
 def read_root():
-    hex = bs.get_color(color_format="hex")
-    css = [name for name,value in bs._names_to_hex.items() if value == hex]
-    if len(css)>0:
-        css = css[0] 
-    else: 
-        css = ''
-    logger.info(str(css)) 
-    return {
-        "css": css,
-        "hex": hex
-    }
+    if bs is None:
+        return {"error": "no device found"}
+    try:
+        hex = bs.get_color(color_format="hex")
+        name = color_from_hex(hex)
+        logger.debug(f'name: {name}, hex: {hex}')
+        return {"result": {"name": name, "hex": hex}}
+    except Exception as e:
+        logger.debug(str(e))
+        return {"result": False}
+
 
 @app.get("/on")
-def on(
-    css: str = None,
-    hex: str = None
-):
-    success = False
+def on(color: str = "green"):
+    if bs is None:
+        return {"error": "no device found"}
     try:
-        bs.set_color(name=css, hex=hex)
-        success = True
+        hex = color_to_hex(color)
+        bs.set_color(hex=hex)
+        logger.debug(f'name: {color}, hex: {hex}')
+        return {"result": True}
     except Exception as e:
-        logger.info(str(e))
-    return {"result": success}
+        logger.debug(str(e))
+        return {"result": False}
+
 
 @app.get("/off")
 def off():
-    success = False
+    if bs is None:
+        return {"error": "no device found"}
     try:
         bs.turn_off()
-        success = True
+        logger.debug('turned off')
+        return {"result": True}
     except Exception as e:
-        logger.info(str(e))
-    return {"result": success}
+        logger.debug(str(e))
+        return {"result": False}
 
 
 @app.get("/pulse")
 def pulse(
-    css: str = "green",
-    hex: str = "#008000",
+    color: str = "blue",
     duration: int = 1000,
     steps: int = 50
 ):
-    success = True
+    if bs is None:
+        return {"error": "no device found"}
     try:
-        bs.pulse(name=css, hex=hex, duration=duration, steps=steps)
-        logger.info("Pulsed")
-        success = True
+        hex = color_to_hex(color)
+        bs.pulse(hex=hex, duration=duration, steps=steps)
+        logger.debug(f"pulsed in {color} for {duration}ms in {steps} steps")
+        return {"result": True}
     except Exception as e:
-        logger.info(str(e))
-    return {"result": success}
+        logger.debug(str(e))
+        return {"result": False}
+
 
 @app.get("/blink")
 def blink(
-    css: str = "green",
-    hex: str = "#008000",
+    color: str = "green",
     delay: int = 500,
     repeats: int = 3
 ):
-    success = False
+    if bs is None:
+        return {"error": "no device found"}
     try:
-        bs.blink(name=css, hex=hex, delay=delay, repeats=repeats)
-        logger.info(f"blinked for {delay}ms {repeats} times")
-        success = True
+        hex = color_to_hex(color)
+        bs.blink(hex=hex, delay=delay, repeats=repeats)
+        logger.debug(f"blinked in {color} for {delay}ms {repeats} times")
+        return {"result": True}
     except Exception as e:
-        logger.info(str(e))
-    return {"result": success}
+        logger.debug(str(e))
+        return {"result": False}
+
 
 @app.get("/morph")
 def morph(
-    css: str = "yellow",
-    hex: str = "#FFFF00",
+    color: str = "yellow",
     duration: int = 6000,
     steps: int = 100
 ):
-    success = False
+    if bs is None:
+        return {"error": "no device found"}
     try:
-        bs.morph(name=css, hex=hex, duration=duration, steps=steps)
-        logger.info(f"morphed to {css} in {duration}ms in {steps} steps")
-        success = True
+        hex = color_to_hex(color)
+        bs.morph(hex=hex, duration=duration, steps=steps)
+        logger.debug(f"morphed to {color} in {duration}ms in {steps} steps")
+        return {"result": True}
     except Exception as e:
-        logger.info(str(e))
-    return {"result": success}
+        logger.debug(str(e))
+        return {"result": False}

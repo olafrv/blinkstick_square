@@ -1,5 +1,4 @@
 {
-    "version": "1.0",
     "configurations": [
         {
             "name": "Python: Uvicorn",
@@ -18,6 +17,6 @@
                 "ENVIRONMENT": "development"
             },
             "console": "integratedTerminal"
-        }
+        },
     ]
 }
