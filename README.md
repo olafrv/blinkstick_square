@@ -1,35 +1,49 @@
-# BlinkStick Square Tests
+# BlinkStick Square
 
-A Python 3 script to test the [BlinkStick Square](https://www.blinkstick.com/products/blinkstick-square) device.
+[RESTful API server](server.py) and [test script](test.py) to control the
+[BlinkStick Square](https://www.blinkstick.com/products/blinkstick-square).
 
 ## Pre-Requisites
 
-A Micro USB Male to Any USB 1.1/2.0/3.0 Female **data transfer** cable (Power only won't work).
+* A [BlinkStick Square](https://www.blinkstick.com/products/blinkstick-square) device.
+* Data transfer capable cable from Micro USB Male to USB 1.1/2.0/3.0 Male.
+* A working Python 3.12+ with pip3 enviroment setup.
+* Finally, run the following commands:
 
-```bash
-brew install libusb     # MacOS
-pip3 install pyusb      # Unix-Like Only
-pip3 install pywinusb   # Windows Only
-pip3 install coverage   # Only for Coverage
+```sh
+git clone https://github.com/olafrv/blinkstick_square
+git submodule update --init --recursive
+pip3 install -r requirements.txt
 ```
 
-# Test Coverage
+## RESTful Server
+
+```sh
+# Microsoft Windows Tips: 
+# Add User's Python Binary Path, <WIN>+R > Run: sysdm.cpl
+# > Environment Variables > System Variables > Path > Edit
+# taskkill /f /im "uvicorn.exe"  # Kill any running server
+uvicorn server:app  # --reload
+```
+
+Head to http://localhost:8001/docs#/ API frontend.
+Use 'Try it out' option on the GET methods.
+
+## Test & Coverage
 
 See [coverage.md](coverage.md) for details of environment
 and the lastest tests coverage.
 
-```bash
-git clone https://github.com/olafrv/blinkstick_square
-git clone submodule update 
-# Run as root / Administrator to allow USB access
-python3 coverage.py  # Main tests
-sh coverage.sh       # Coverage Unix-Like
-pwsh coverage.ps1    # Coverage Windows
+```sh
+# As root / Administrator to allow USB access
+python3 test.py               # Tests
+sh coverage/coverage.sh       # Coverage Unix-Like
+pwsh coverage\coverage.ps1    # Coverage Windows
 ```
 
-## Output
+The output of the test/coverage is as follows:
 
-```bash
+```sh
 Python Package: 1.2.0
 Serial:         BS******-*.*
 Variant:        BlinkStick Square
@@ -75,9 +89,8 @@ Color: [215, 207, 221]
 Turning ⬇️ OFF
 ```
 
-# Todos
+## Todos
 
-* API server to operate device remotely
 * WSL2 USB Tests
   * https://gitlab.com/alelec/wsl-usb-gui
   * https://github.com/dorssel/usbipd-win
@@ -90,3 +103,4 @@ Turning ⬇️ OFF
 * SRC: https://github.com/arvydas/blinkstick-python
 * API: https://arvydas.github.io/blinkstick-python/
 * Coverage: https://coverage.readthedocs.io/en/7.3.2/
+* FastAPI: https://fastapi.tiangolo.com

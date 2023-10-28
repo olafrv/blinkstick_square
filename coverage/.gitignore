@@ -1,0 +1,9 @@
+*.zip
+*.tar.gz
+__pycache__
+.DS_Store
+.coverage
+.coverage.*
+htmlcov*
+macm1
+win32

@@ -1,0 +1,6 @@
+libusb; sys_platform == "darwin"
+pyusb 
+pywinusb; sys_platform == 'win32'
+fastapi
+uvicorn[standard]
+coverage
