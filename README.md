@@ -104,3 +104,4 @@ Turning ⬇️ OFF
 * API: https://arvydas.github.io/blinkstick-python/
 * Coverage: https://coverage.readthedocs.io/en/7.3.2/
 * FastAPI: https://fastapi.tiangolo.com
+* UviCorn: https://www.uvicorn.org
