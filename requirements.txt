@@ -1,6 +1,6 @@
 libusb; sys_platform == "darwin"
-pyusb 
-pywinusb; sys_platform == 'win32'
-fastapi
-uvicorn[standard]
-coverage
+pyusb==1.2.1
+pywinusb==0.4.2; sys_platform == 'win32'
+fastapi==0.104.0
+uvicorn[standard]==0.23.2
+coverage==7.3.2
