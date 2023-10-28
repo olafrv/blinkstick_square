@@ -14,7 +14,7 @@ device.
 
 ```sh
 git clone https://github.com/olafrv/blinkstick_square
-git submodule update --init --recursive
+git submodule update --init
 pip3 install -r requirements.txt
 ```
 
