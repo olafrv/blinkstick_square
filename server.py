@@ -13,7 +13,7 @@ bs = blinkstick.find_first()
 app = FastAPI(
     title="BlickStick-Square API Server",
     summary="RESTful server to control the BlinkStick Square",
-    version="1.0.0",
+    version="1.0",
 )
 
 @app.get("/")  # noqa: E302
