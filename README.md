@@ -22,7 +22,7 @@ pip3 install -r requirements.txt
 
 ### Microsoft Windows Tips 
 
-* Add User's Python Binary Path, <WIN>+R > Run: sysdm.cpl > Environment Variables > System Variables > Path > Edit
+* Add User's Python Path, <WIN>+R > Run: sysdm.cpl > Environment Variables > System Variables > Path > Edit
 * Execute `taskkill /f /im "uvicorn.exe"` or `taskkill /f /im "python.exe"`  to kill any running server
 
 ### Testing the RESTful Server
