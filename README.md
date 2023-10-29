@@ -18,7 +18,7 @@ git submodule update --init
 pip3 install -r requirements.txt
 ```
 
-## RESTful Server
+## Usage
 
 ### Microsoft Windows Tips 
 
