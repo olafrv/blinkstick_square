@@ -27,6 +27,7 @@ pip3 install -r requirements.txt
 
 ### Testing the RESTful Server
 
+* Start the server with the following command:
 ```sh
 BS_SQ_API_USERNAME="admin"
 BS_SQ_API_PASSWORD="strong-password-here"
@@ -34,10 +35,10 @@ uvicorn server:app  # --reload
 python server.py  # Alternative
 ```
 
-Head to http://localhost:8001/docs API frontend.
-Click on 'Authorize' button and enter the credentials
-Expand the GET methods and click on 'Try it out' option.
-Fill out the parameters and click on 'Execute' button.
+* Head to http://localhost:8001/docs API frontend.
+* Click on 'Authorize' button and enter the credentials
+* Expand the GET methods and click on 'Try it out' option.
+* Fill out the parameters and click on 'Execute' button.
 
 ## Test & Coverage
 
