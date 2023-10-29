@@ -9,8 +9,8 @@ device.
 
 * A [BlinkStick Square](https://www.blinkstick.com/products/blinkstick-square) device.
 * Data transfer capable cable from Micro USB Male to USB 1.1/2.0/3.0 Male.
-* A working Python 3.12+ with pip3 enviroment setup.
-* Finally, run the following commands:
+* A Python 3.12+ +pip3 working enviroment setup.
+* Clone the repository with the following commands:
 
 ```sh
 git clone https://github.com/olafrv/blinkstick_square
