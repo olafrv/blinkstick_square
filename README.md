@@ -31,7 +31,7 @@ pip3 install -r requirements.txt
 ```sh
 BS_SQ_API_USERNAME="admin"
 BS_SQ_API_PASSWORD="strong-password-here"
-uvicorn server:app  # --reload
+uvicorn server:app
 python server.py  # Alternative
 ```
 
