@@ -31,8 +31,8 @@ pip3 install -r requirements.txt
 
 * Start the server with the following command:
 ```sh
-BS_SQ_API_USERNAME="admin"
-BS_SQ_API_PASSWORD="strong-password-here"
+BS_SQ_API_USERNAME="admin"  # If not set, defaults to "admin"
+BS_SQ_API_PASSWORD="strong-password-here"  # If not set, defaults to random value
 uvicorn server:app
 python server.py  # Alternative
 ```
