@@ -8,6 +8,9 @@ from typing import Annotated
 from fastapi import FastAPI, Request, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
+from fastapi.responses import (
+    RedirectResponse,
+)
 from blinkstick_python.blinkstick import blinkstick
 import colorlog
 
@@ -89,7 +92,13 @@ def color_from_hex(hex):
 
 
 @app.get("/")
-def read_root(
+def root():
+    response = RedirectResponse(url='/docs#')
+    return response
+
+
+@app.get("/color")
+def color(
     username: Annotated[HTTPBasicCredentials, Depends(check_login)] = None
 ):
     if username is None:

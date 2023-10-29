@@ -20,10 +20,45 @@ git submodule update --init
 pip3 install -r requirements.txt
 ```
 
+### MacOS Tips
+
+* Use `sudo` to allow USB access when executing `python` or `uvicorn`.
+
 ### Microsoft Windows Tips 
 
 * Add User's Python Path, <WIN>+R > Run: sysdm.cpl > Environment Variables > System Variables > Path > Edit
-* Execute `taskkill /f /im "uvicorn.exe"` or `taskkill /f /im "python.exe"`  to kill any running server
+* Execute `taskkill /f /im "uvicorn.exe"` or `taskkill /f /im "python.exe"`  to kill any running server.
+
+### Microsoft WSL2 Tips
+
+* Close (quit) BlinkStick Client App as it will block the USB device.
+* Follow the instructions to install [usbipd-win](https://github.com/dorssel/usbipd-win)
+  described by Microsoft [here](https://learn.microsoft.com/en-us/windows/wsl/connect-usb).
+* First, inside your WSL2 Linux:
+```sh
+sudo apt install linux-tools-generic hwdata
+sudo update-alternatives --install /usr/local/bin/usbip usbip /usr/lib/linux-tools/*-generic/usbip 20
+cat - | sudo tee /etc/udev/rules.d/99-blinkstick.rules <<EOF
+# BlinkStick Square - Allow user to read or write to the device
+SUBSYSTEM=="usb", ATTRS{idVendor}=="20a0", ATTRS{idProduct}=="41e5", MODE="0666"
+EOF
+sudo udevadm control --reload-rules
+```
+* Second, list and attach the device to the WSL2 Linux:
+```sh
+# Windows Command Prompt (CMD) as Administrator
+C:\Windows\System32>usbipd wsl list
+2-2    20a0:41e5  USB Input Device  Not Attached
+C:\Windows\System32>usbipd wsl attach --busid=2-2
+C:\Windows\System32>usbipd wsl list
+2-2    20a0:41e5  USB Input Device  Attached - WSL
+```
+* Third, list the device inside the WSL2 Linux:
+```sh
+# WSL2 Linux Shell
+$ lsusb
+Bus 001 Device 003: ID 20a0:41e5 Clay Logic BlinkStick
+```
 
 ## Usage
 
@@ -34,10 +69,10 @@ pip3 install -r requirements.txt
 BS_SQ_API_USERNAME="admin"  # If not set, defaults to "admin"
 BS_SQ_API_PASSWORD="strong-password-here"  # If not set, defaults to random value
 uvicorn server:app
-python server.py  # Alternative
+python server.py    # Alternative
 ```
 
-* Head to http://localhost:8001/docs API frontend.
+* Head to http://localhost:8000/ API frontend.
 * Click on 'Authorize' button and enter the credentials
 * Expand the GET methods and click on 'Try it out' option.
 * Fill out the parameters and click on 'Execute' button.
@@ -48,7 +83,6 @@ See [coverage.md](coverage.md) for details of environment
 and the lastest tests coverage.
 
 ```sh
-# As root / Administrator to allow USB access
 python3 test.py               # Tests
 sh coverage/coverage.sh       # Coverage Unix-Like
 pwsh coverage\coverage.ps1    # Coverage Windows
@@ -104,9 +138,7 @@ Turning ⬇️ OFF
 
 ## Todos
 
-* WSL2 USB Tests
-  * https://gitlab.com/alelec/wsl-usb-gui
-  * https://github.com/dorssel/usbipd-win
+* Figure out udev rules on MacOS to avoid admin rights.
 
 ## References
 
@@ -118,3 +150,6 @@ Turning ⬇️ OFF
 * Coverage: https://coverage.readthedocs.io/en/7.3.2/
 * FastAPI: https://fastapi.tiangolo.com
 * UviCorn: https://www.uvicorn.org
+* WLS2 Connect USB Devices:
+  * https://learn.microsoft.com/en-us/windows/wsl/connect-usb
+  * https://github.com/dorssel/usbipd-win

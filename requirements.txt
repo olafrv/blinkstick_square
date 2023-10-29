@@ -1,5 +1,5 @@
-libusb; sys_platform == "darwin"
-pyusb==1.2.1
+# libusb; sys_platform != 'win32'
+pyusb==1.2.1; sys_platform != 'win32'
 pywinusb==0.4.2; sys_platform == 'win32'
 webcolors==1.13
 colorlog==6.7.0
