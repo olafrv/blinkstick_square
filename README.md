@@ -7,6 +7,8 @@ device.
 
 ## Pre-Requisites
 
+### Basics
+
 * A [BlinkStick Square](https://www.blinkstick.com/products/blinkstick-square) device.
 * Data transfer capable cable from Micro USB Male to USB 1.1/2.0/3.0 Male.
 * A Python 3.12+ +pip3 working enviroment setup.
@@ -18,12 +20,12 @@ git submodule update --init
 pip3 install -r requirements.txt
 ```
 
-## Usage
-
 ### Microsoft Windows Tips 
 
 * Add User's Python Path, <WIN>+R > Run: sysdm.cpl > Environment Variables > System Variables > Path > Edit
 * Execute `taskkill /f /im "uvicorn.exe"` or `taskkill /f /im "python.exe"`  to kill any running server
+
+## Usage
 
 ### Testing the RESTful Server
 
