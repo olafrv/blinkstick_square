@@ -87,8 +87,9 @@ if led:
     sleep(3)
 
     print("---")
-    print("Morphing from 🟦 GREEN => 🟨 YELLOW ...")
+    print("Morphing from 🟦 BLUE => 🟨 YELLOW ...")
     led.set_color(name="blue")
+    sleep(1)
     led.morph(name="yellow", duration=6000, steps=100)
     print("Color: " + led.get_color(color_format="hex"))
     print("Color: " + str(led.get_color(color_format="rgb")))
