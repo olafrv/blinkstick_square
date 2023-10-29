@@ -22,6 +22,7 @@ pip3 install -r requirements.txt
 
 ### MacOS Tips
 
+* Install `libusb` with the command `brew install libusb`.
 * Use `sudo` to allow USB access when executing `python` or `uvicorn`.
 
 ### Microsoft Windows Tips 
