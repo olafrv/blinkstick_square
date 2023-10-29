@@ -20,17 +20,24 @@ pip3 install -r requirements.txt
 
 ## RESTful Server
 
+### Microsoft Windows Tips 
+
+* Add User's Python Binary Path, <WIN>+R > Run: sysdm.cpl > Environment Variables > System Variables > Path > Edit
+* Execute `taskkill /f /im "uvicorn.exe"` or `taskkill /f /im "python.exe"`  to kill any running server
+
+### Testing the RESTful Server
+
 ```sh
-# Microsoft Windows Tips: 
-# Add User's Python Binary Path, <WIN>+R > Run: sysdm.cpl
-# > Environment Variables > System Variables > Path > Edit
-# taskkill /f /im "uvicorn.exe"  # Kill any running server
+BS_SQ_API_USERNAME="admin"
+BS_SQ_API_PASSWORD="strong-password-here"
 uvicorn server:app  # --reload
-# python server.py  # Alternative
+python server.py  # Alternative
 ```
 
-Head to http://localhost:8001/docs#/ API frontend.
-Use 'Try it out' option on the GET methods.
+Head to http://localhost:8001/docs API frontend.
+Click on 'Authorize' button and enter the credentials
+Expand the GET methods and click on 'Try it out' option.
+Fill out the parameters and click on 'Execute' button.
 
 ## Test & Coverage
 

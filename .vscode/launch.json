@@ -5,9 +5,23 @@
       "type": "python",
       "request": "launch",
       "module": "uvicorn",
-      "args": ["server:app", "--reload", "--port","8000"],
+      "args": [
+        "server:app",
+        "--host", "localhost",
+        "--port", "8000",
+        "--log-config", "logging.conf",
+        "--no-use-colors",
+        "--reload"
+      ],
+      "autoReload": {
+        "enable": true
+      },
       "jinja": true,
-      "justMyCode": true
+      "justMyCode": false,
+      "env": {
+        "BS_SQ_API_USERNAME": "admin",
+        "BS_SQ_API_PASSWORD": "debug"
+      }
     },
   ]
 }
