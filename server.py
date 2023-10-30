@@ -32,10 +32,12 @@ app = FastAPI(
     redoc_url=None
 )
 
-default_username = os.getenv("BS_SQ_API_USERNAME") or "admin"
+default_username = os.environ.get("BS_SQ_API_USERNAME") or "admin"
 default_username_bytes = default_username.encode("UTF-8")
-default_password = os.getenv("BS_SQ_API_PASSWORD") or secrets.token_hex(16)
+default_password = os.environ.get("BS_SQ_API_PASSWORD") or secrets.token_hex(16)
 default_password_bytes = default_password.encode("UTF-8")
+if os.environ.get("BS_SQ_API_PASSWORD") is None:
+    logger.warning(f"Set random password for user '{default_username}'.")
 security = HTTPBasic()
 
 
@@ -91,7 +93,7 @@ def color_from_hex(hex):
     return webcolors.hex_to_name(hex)
 
 
-@app.get("/")
+@app.get("/", include_in_schema=False)
 def root():
     response = RedirectResponse(url='/docs#')
     return response
@@ -144,7 +146,7 @@ def off(
         return {"error": "no device found"}
     try:
         bs.turn_off()
-        logger.debug('turned off')
+        logger.info('turned off')
         return {"result": True}
     except Exception as e:
         logger.error(str(e))

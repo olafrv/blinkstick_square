@@ -63,15 +63,29 @@ Bus 001 Device 003: ID 20a0:41e5 Clay Logic BlinkStick
 
 ## Usage
 
-### Testing the RESTful Server
+### Set Username and Password
+
+```sh	
+export BS_SQ_API_USERNAME="admin"  # If not set, defaults to "admin"
+export BS_SQ_API_PASSWORD="strong-password"  # If not set, defaults to random value
+```
+
+### Docker Compose
+
+```sh
+docker compose up -d
+docker logs blinkstick_square
+```
+
+### Uvicorn or Python
 
 * Start the server with the following command:
 ```sh
-BS_SQ_API_USERNAME="admin"  # If not set, defaults to "admin"
-BS_SQ_API_PASSWORD="strong-password-here"  # If not set, defaults to random value
 uvicorn server:app
 python server.py    # Alternative
 ```
+
+### API Frontend
 
 * Head to http://localhost:8000/ API frontend.
 * Click on 'Authorize' button and enter the credentials
