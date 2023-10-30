@@ -29,7 +29,6 @@ bs = blinkstick.find_first()
 app = FastAPI(
     title="BlickStick-Square API Server",
     summary="RESTful API server to control the BlinkStick Square",
-    version="1.2",
     redoc_url=None
 )
 
