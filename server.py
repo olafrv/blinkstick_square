@@ -25,6 +25,7 @@ logging.config.fileConfig('logging.conf', disable_existing_loggers=False)
 logger = logging.getLogger(__name__)
 
 bs = blinkstick.find_first()
+
 app = FastAPI(
     title="BlickStick-Square API Server",
     summary="RESTful API server to control the BlinkStick Square",
@@ -32,12 +33,18 @@ app = FastAPI(
     redoc_url=None
 )
 
-default_username = os.environ.get("BS_SQ_API_USERNAME") or "admin"
+default_username = os.getenv("BS_SQ_API_USERNAME")
+if default_username is None:
+    default_username = 'admin'
+    logger.warning(f"Username empty, set to '{default_username}'")   
 default_username_bytes = default_username.encode("UTF-8")
-default_password = os.environ.get("BS_SQ_API_PASSWORD") or secrets.token_hex(16)
+
+default_password = os.getenv("BS_SQ_API_PASSWORD")
+if default_password is None:
+    default_password = secrets.token_hex(16)
+    logger.warning(f"Password empty, set random for '{default_username}'")
 default_password_bytes = default_password.encode("UTF-8")
-if os.environ.get("BS_SQ_API_PASSWORD") is None:
-    logger.warning(f"Set random password for user '{default_username}'.")
+
 security = HTTPBasic()
 
 
@@ -217,8 +224,12 @@ def morph(
 
 
 if __name__ == "__main__":
+    logger.info(f"Started by python ({__name__})")
+    host = "0.0.0.0"
+    port = "8000"
+    logger.info(f"Running uvicorn on {host}:{port}")
     uvicorn.run(app,
-                host="0.0.0.0",
-                port=8000,
+                host=host,
+                port=port,
                 log_config="logging.conf",
                 use_colors=False)
