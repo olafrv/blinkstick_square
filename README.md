@@ -103,53 +103,10 @@ sh coverage/coverage.sh       # Coverage Unix-Like
 pwsh coverage\coverage.ps1    # Coverage Windows
 ```
 
-The output of the test/coverage is as follows:
+The output of the test/coverage is shown below ([source](docs/bssq_test.cast)):
 
-```sh
-Python Package: 1.2.0
-Serial:         BS******-*.*
-Variant:        BlinkStick Square
-Manufacturer:   Agile Innovative Ltd
-Description:    BlinkStick
-Info Block 1:   Olaf Retmaier
-Info Block 2:   olafrv@gmail.com
----
-Finding first device...
-LEDs Count: -1
----
-Turning on 🟥 RED...
-Color: #ff0000
-Color: [255, 0, 0]
----
-Turning on 🟧 ORANGE...
-Color: #ffa500
-Color: [255, 165, 0]
----
-Turning on 🟥 RED? (Max RGB Value=128) ...
-Color: #800000
-Color: [128, 0, 0]
----
-Inverse of ⬛ BLACK is ⬜ WHITE ...
-Color: #000000
-Color: [0, 0, 0]
----
-Pulsing on 🟦 BLUE...
-Color: #000000
-Color: [0, 0, 0]
----
-Blinking on 🟩 GREEN...
-Color: #000000
-Color: [0, 0, 0]
----
-Morphing from 🟦 BLUE => 🟨 YELLOW ...
-Color: #ffff00
-Color: [255, 255, 0]
----
-Random 2x🎁 COLORS ...
-Color: #d7cfdd
-Color: [215, 207, 221]
-Turning ⬇️ OFF
-```
+[![asciicast](https://asciinema.org/a/618281.png)](https://asciinema.org/a/618281) 
+
 
 ## Todos
 
