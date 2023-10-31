@@ -34,7 +34,7 @@ pip3 install -r requirements.txt
 
 ### Microsoft WSL2 Tips
 
-* Close (quit) BlinkStick Client App as it will block the USB device.
+* Close (quit) [BlinkStick Client App](https://www.blinkstick.com/help/downloads) as it will block the USB device.
 * Follow the instructions to install [usbipd-win](https://github.com/dorssel/usbipd-win)
   described by Microsoft [here](https://learn.microsoft.com/en-us/windows/wsl/connect-usb).
 * First, inside your WSL2 Linux:
