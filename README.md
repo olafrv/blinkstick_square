@@ -5,8 +5,7 @@ The Unofficial [RESTful API server](server.py) and
 [BlinkStick Square](https://www.blinkstick.com/products/blinkstick-square) 
 device.
 
-https://raw.githubusercontent.com/olafrv/blinkstick_square/master/docs/BlinkStickSquare480px.mp4
-
+https://github.com/olafrv/blinkstick_square/assets/987499/0d43afc5-ec32-4dd1-9299-25bf6d0d29a1
 
 ## Pre-Requisites
 
