@@ -1,4 +1,3 @@
-# libusb; sys_platform != 'win32'
 pyusb==1.2.1; sys_platform != 'win32'
 pywinusb==0.4.2; sys_platform == 'win32'
 webcolors==1.13
