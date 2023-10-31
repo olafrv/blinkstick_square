@@ -47,7 +47,7 @@ SUBSYSTEM=="usb", ATTRS{idVendor}=="20a0", ATTRS{idProduct}=="41e5", MODE="0666"
 EOF
 sudo udevadm control --reload-rules
 ```
-* Second, list and attach the device to the WSL2 Linux:
+* Second, from Windows list and attach the device to the WSL2 Linux:
 ```sh
 # Windows Command Prompt (CMD) as Administrator
 C:\Windows\System32>usbipd wsl list
@@ -56,9 +56,10 @@ C:\Windows\System32>usbipd wsl attach --busid=2-2
 C:\Windows\System32>usbipd wsl list
 2-2    20a0:41e5  USB Input Device  Attached - WSL
 ```
-* Third, list the device inside the WSL2 Linux:
+* Third, inside the WSL2 Linux list the device:
 ```sh
 # WSL2 Linux Shell
+$ apt install usbutils
 $ lsusb
 Bus 001 Device 003: ID 20a0:41e5 Clay Logic BlinkStick
 ```
