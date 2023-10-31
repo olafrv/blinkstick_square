@@ -24,8 +24,16 @@ pip3 install -r requirements.txt
 
 ### MacOS Tips
 
+![MacOS USB Devices](./docs/macos_usb_devices.png)
+
 * Install `libusb` with the command `brew install libusb`.
 * Use `sudo` to allow USB access when executing `python` or `uvicorn`.
+* Check if BlinkStick visible in the following places/ways (if not **replug** it):
+  * [System Information > USB](https://support.apple.com/en-gb/guide/mac-help/mchlp1641/mac).
+  * Running: `system_profiler SPUSBDataType`.
+  * Running: `ioreg -p IOUSB`.
+  * Running: [lsusb for MacOS](https://github.com/jlhonora/lsusb).  
+
 
 ### Microsoft Windows Tips 
 
