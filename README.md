@@ -118,10 +118,6 @@ The output of the test/coverage is shown below ([source](docs/bssq_test.cast)):
 [![asciicast](https://asciinema.org/a/618281.png)](https://asciinema.org/a/618281) 
 
 
-## Todos
-
-* Figure out udev rules on MacOS to avoid admin rights.
-
 ## References
 
 * BlinkStick: https://www.blinkstick.com
