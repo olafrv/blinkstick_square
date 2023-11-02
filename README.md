@@ -131,3 +131,6 @@ The output of the test/coverage is shown below ([source](docs/bssq_test.cast)):
 * WLS2 Connect USB Devices:
   * https://learn.microsoft.com/en-us/windows/wsl/connect-usb
   * https://github.com/dorssel/usbipd-win
+* Testing USB Hardware/Drivers on Windows:
+  * https://learn.microsoft.com/en-us/windows-hardware/drivers/usbcon/muttutil
+  * https://learn.microsoft.com/en-us/windows-hardware/drivers/usbcon/how-to-retrieve-information-about-a-usb-device
