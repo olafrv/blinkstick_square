@@ -13,13 +13,18 @@ https://github.com/olafrv/blinkstick_square/assets/987499/0d43afc5-ec32-4dd1-929
 
 * A [BlinkStick Square](https://www.blinkstick.com/products/blinkstick-square) device.
 * Data transfer capable cable from Micro USB Male to USB 1.1/2.0/3.0 Male.
-* A Python 3.12+ +pip3 working enviroment setup.
+* A Python 3.12+ +pip3 working enviroment setup (optionally, virtual).
+
+### Installation
+
 * Clone the repository with the following commands:
 
 ```sh
 git clone https://github.com/olafrv/blinkstick_square
 cd blinkstick_square
 git submodule update --init
+python -m venv .venv       # if you want to use Python Virtual enviroment
+source .venv/bin/activate  # if you want to use Python Virtual enviroment 
 pip3 install -r requirements.txt
 ```
 
@@ -72,10 +77,11 @@ $ lsusb
 Bus 001 Device 003: ID 20a0:41e5 Clay Logic BlinkStick
 ```
 
-### Raspberry/Raspbian OS Tips
+### Raspberry Pi + Raspbian OS Tips
 
-* Add the udev rules (See Microsoft WSL2 Tips) and reboot
-* Then you should see the USB device with `lsusb -vvv` without issues.
+* The command `lsusb` should be already installed.
+* Add the udev rules (See Microsoft WSL2 Tips) and reboot.
+* Then you should see the USB device with `lsusb -vvv` (without errors).
 
 ## Usage
 
@@ -86,23 +92,26 @@ BS_SQ_API_USERNAME="admin"            # If not set, defaults to "admin"
 BS_SQ_API_PASSWORD="strong-password"  # If not set, defaults to RANDOM value!
 ```
 
-### Docker Compose
+### Option 1: Uvicorn or Python w/wo Python Virtual Environment
+
+* Start the server with one of the following command:
+```sh
+# 
+sudo uvicorn server:app   # sudo allows TCP port binding
+sudo python3 server.py    # alternative without uvicorn
+# If Python virtual environment (sudo ignores $PATH):
+sudo .venv/bin/uvicorn server:app
+sudo .venv/bin/python3 server.py
+```
+
+### Option 2: Docker Compose
 
 ```sh
 docker compose up -d
 docker logs blinkstick_square
 ```
 
-### Uvicorn or Python
-
-* Start the server with the following command:
-```sh
-sudo uvicorn server:app   # sudo allows TCP port binding
-sudo python3 server.py    # alternative without uvicorn
-sudo python3 .venv/bin/python3 server.py   # sudo ignores $PATH!
-```
-
-### API Frontend
+### Access API Frontend
 
 * Head to http://localhost:8000/ API frontend.
 * Click on 'Authorize' button and enter the credentials
