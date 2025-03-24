@@ -3,7 +3,7 @@
 SERVICE_NAME="blinkstick"
 SERVICE_FILE="/etc/systemd/system/$SERVICE_NAME.service"
 PYTHON_EXEC="$(pwd)/.venv/bin/uvicorn"  # or python3
-SCRIPT_PATH="server:app"  # or server.py
+SCRIPT_PATH="server:app --host 0.0.0.0"  # or server.py
 
 # Create systemd service file
 # User 'root' is needed to bind 
