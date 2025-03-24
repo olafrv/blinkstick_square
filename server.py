@@ -4,6 +4,7 @@ import logging
 import webcolors
 import secrets
 import uvicorn
+from dotenv import load_dotenv
 from typing import Annotated
 from fastapi import FastAPI, Request, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
@@ -23,6 +24,8 @@ class ColoredFormatter(colorlog.ColoredFormatter):
 
 logging.config.fileConfig('logging.conf', disable_existing_loggers=False)
 logger = logging.getLogger(__name__)
+
+load_dotenv()
 
 bs = blinkstick.find_first()
 

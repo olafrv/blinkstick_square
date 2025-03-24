@@ -18,6 +18,7 @@ https://github.com/olafrv/blinkstick_square/assets/987499/0d43afc5-ec32-4dd1-929
 
 ```sh
 git clone https://github.com/olafrv/blinkstick_square
+cd blinkstick_square
 git submodule update --init
 pip3 install -r requirements.txt
 ```
@@ -52,7 +53,7 @@ cat - | sudo tee /etc/udev/rules.d/99-blinkstick.rules <<EOF
 # BlinkStick Square - Allow user to read or write to the device
 SUBSYSTEM=="usb", ATTRS{idVendor}=="20a0", ATTRS{idProduct}=="41e5", MODE="0666"
 EOF
-sudo udevadm control --reload-rules
+sudo udevadm control --reload-rules  # Sometimes reboot is required!
 ```
 * Second, from Windows list and attach the device to the WSL2 Linux:
 ```sh
@@ -71,13 +72,18 @@ $ lsusb
 Bus 001 Device 003: ID 20a0:41e5 Clay Logic BlinkStick
 ```
 
+### Raspberry/Raspbian OS Tips
+
+* Add the udev rules (See Microsoft WSL2 Tips) and reboot
+* Then you should see the USB device with `lsusb -vvv` without issues.
+
 ## Usage
 
-### Set Username and Password
+### Set Username and Password inside `.env`
 
 ```sh	
-export BS_SQ_API_USERNAME="admin"  # If not set, defaults to "admin"
-export BS_SQ_API_PASSWORD="strong-password"  # If not set, defaults to random value
+BS_SQ_API_USERNAME="admin"            # If not set, defaults to "admin"
+BS_SQ_API_PASSWORD="strong-password"  # If not set, defaults to RANDOM value!
 ```
 
 ### Docker Compose
@@ -91,8 +97,9 @@ docker logs blinkstick_square
 
 * Start the server with the following command:
 ```sh
-uvicorn server:app
-python server.py    # Alternative
+sudo uvicorn server:app   # sudo allows TCP port binding
+sudo python3 server.py    # alternative without uvicorn
+sudo python3 .venv/bin/python3 server.py   # sudo ignores $PATH!
 ```
 
 ### API Frontend
