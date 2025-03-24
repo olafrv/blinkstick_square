@@ -96,12 +96,14 @@ BS_SQ_API_PASSWORD="strong-password"  # If not set, defaults to RANDOM value!
 
 * Start the server with one of the following command:
 ```sh
-# 
-sudo uvicorn server:app   # sudo allows TCP port binding
-sudo python3 server.py    # alternative without uvicorn
+# See the previous tips sections if facing issues
+uvicorn server:app  # default
+uvicorn --host 0.0.0.0 --port 8000 server:app
+python3 server.py  # alternative without uvicorn
 # If Python virtual environment (sudo ignores $PATH):
-sudo .venv/bin/uvicorn server:app
-sudo .venv/bin/python3 server.py
+.venv/bin/uvicorn server:app
+.venv/bin/uvicorn server:app --host 0.0.0.0 --port 8000 server:app
+.venv/bin/python3 server.py
 ```
 
 ### Option 2: Docker Compose
@@ -115,14 +117,14 @@ docker logs blinkstick_square
 
 ```bash
 bash service.sh  # Install the service on boot
-journalctl -u blinkstick  # Check the service logs (also in './logs' directory)
+journalctl -u blinkstick  # Check the service logs (Also './logs/*.log')
 # sudo systemctl stop blinkstick
 # sudo systemctl start blinkstick
 ```
 
 ### Access API Frontend
 
-* Head to http://localhost:8000/ API frontend.
+* Go to http://localhost:8000/ (or http://<IP>:8000).
 * Click on 'Authorize' button and enter the credentials
 * Expand the GET methods and click on 'Try it out' option.
 * Fill out the parameters and click on 'Execute' button.

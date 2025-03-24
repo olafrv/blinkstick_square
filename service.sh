@@ -1,13 +1,20 @@
 #!/bin/bash
 
+# NOTE: 
+# Here the host, port, User and Group vales could be all changed.
+# If you are NOT using uvicorn the ports are on 'server.py'
+
 SERVICE_NAME="blinkstick"
 SERVICE_FILE="/etc/systemd/system/$SERVICE_NAME.service"
-PYTHON_EXEC="$(pwd)/.venv/bin/uvicorn"  # or python3
-SCRIPT_PATH="--host 0.0.0.0 server:app"  # or server.py
+
+PYTHON_EXEC="$(pwd)/.venv/bin/uvicorn"
+SCRIPT_PATH="--host 0.0.0.0 --port 8000 server:app"
+
+# Uncomment these lines to not use uvicorn
+# PYTHON_EXEC="$(pwd)/.venv/bin/python3"
+# SCRIPT_PATH="server.py"
 
 # Create systemd service file
-# User 'root' is needed to bind 
-# the TCP 8000 port to 0.0.0.0
 echo "[Unit]
 Description=BlickStick API Service
 After=network.target
@@ -16,8 +23,8 @@ After=network.target
 ExecStart=$PYTHON_EXEC $SCRIPT_PATH
 WorkingDirectory=$(pwd)
 Restart=always
-User=root
-Group=root
+User=pi
+Group=pi
 
 [Install]
 WantedBy=multi-user.target" | sudo tee $SERVICE_FILE > /dev/null
