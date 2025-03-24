@@ -111,6 +111,15 @@ docker compose up -d
 docker logs blinkstick_square
 ```
 
+### Run the application on boot
+
+```bash
+bash service.sh  # Install the service on boot
+journalctl -u blinkstick  # Check the service logs (also in './logs' directory)
+# sudo systemctl stop blinkstick
+# sudo systemctl start blinkstick
+```
+
 ### Access API Frontend
 
 * Head to http://localhost:8000/ API frontend.
