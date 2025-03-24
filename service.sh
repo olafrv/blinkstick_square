@@ -6,6 +6,8 @@ PYTHON_EXEC="$(pwd)/.venv/bin/uvicorn"  # or python3
 SCRIPT_PATH="server:app"  # or server.py
 
 # Create systemd service file
+# User 'root' is needed to bind 
+# the TCP 8000 port to 0.0.0.0
 echo "[Unit]
 Description=BlickStick API Service
 After=network.target
@@ -14,8 +16,8 @@ After=network.target
 ExecStart=$PYTHON_EXEC $SCRIPT_PATH
 WorkingDirectory=$(pwd)
 Restart=always
-User=pi
-Group=pi
+User=root
+Group=root
 
 [Install]
 WantedBy=multi-user.target" | sudo tee $SERVICE_FILE > /dev/null
