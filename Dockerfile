@@ -19,7 +19,7 @@ COPY requirements.txt /opt/blinkstick_square/
 COPY blinkstick_python /opt/blinkstick_square/blinkstick_python
 COPY server.py /opt/blinkstick_square/
 
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED=1
 RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 RUN pip3 install -Ur requirements.txt \

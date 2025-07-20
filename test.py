@@ -39,7 +39,7 @@ if led:
     print("Turning on 🟥 RED...")
     led.set_error_reporting(False)
     led.set_color(hex="#f00")  # name="red" , expands to hex="#ff0000"
-    print("Color: " + led.get_color(color_format="hex"))
+    print("Color: " + str(led.get_color(color_format="hex")))
     print("Color: " + str(led.get_color(color_format="rgb")))
     sleep(3)
 
@@ -47,7 +47,7 @@ if led:
     print("Turning on 🟧 ORANGE...")
     led.set_error_reporting(True)
     led.set_color(name="orange")
-    print("Color: " + led.get_color(color_format="hex"))
+    print("Color: " + str(led.get_color(color_format="hex")))
     print("Color: " + str(led.get_color(color_format="rgb")))
     sleep(3)
 
@@ -56,7 +56,7 @@ if led:
     led.get_max_rgb_value(None)  # This function must be fixed
     led.set_max_rgb_value(128)
     led.set_color(red=255, green=0, blue=0)  # name="red"
-    print("Color: " + led.get_color(color_format="hex"))
+    print("Color: " + str(led.get_color(color_format="hex")))
     print("Color: " + str(led.get_color(color_format="rgb")))
     sleep(3)
     led.set_max_rgb_value(255)
@@ -67,7 +67,7 @@ if led:
     led.get_inverse()
     led.set_inverse(True)
     led.set_color(name="black")
-    print("Color: " + led.get_color(color_format="hex"))
+    print("Color: " + str(led.get_color(color_format="hex")))
     print("Color: " + str(led.get_color(color_format="rgb")))
     sleep(3)
     led.set_inverse(False)
@@ -75,14 +75,14 @@ if led:
     print("---")
     print("Pulsing on 🟦 BLUE...")
     led.pulse(name="blue", duration=1000, repeats=3)
-    print("Color: " + led.get_color(color_format="hex"))
+    print("Color: " + str(led.get_color(color_format="hex")))
     print("Color: " + str(led.get_color(color_format="rgb")))
     sleep(1)
 
     print("---")
     print("Blinking on 🟩 GREEN...")
     led.blink(name="green", delay=1000, repeats=3)
-    print("Color: " + led.get_color(color_format="hex"))
+    print("Color: " + str(led.get_color(color_format="hex")))
     print("Color: " + str(led.get_color(color_format="rgb")))
     sleep(3)
 
@@ -91,7 +91,7 @@ if led:
     led.set_color(name="blue")
     sleep(1)
     led.morph(name="yellow", duration=6000, steps=100)
-    print("Color: " + led.get_color(color_format="hex"))
+    print("Color: " + str(led.get_color(color_format="hex")))
     print("Color: " + str(led.get_color(color_format="rgb")))
     sleep(3)
 
@@ -100,7 +100,7 @@ if led:
     led.set_color(name="random")
     sleep(3)
     led.set_random_color()
-    print("Color: " + led.get_color(color_format="hex"))
+    print("Color: " + str(led.get_color(color_format="hex")))
     print("Color: " + str(led.get_color(color_format="rgb")))
     sleep(3)
 
